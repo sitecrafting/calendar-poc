@@ -1,0 +1,22 @@
+{
+  "name": "big-calendar-poc",
+  "version": "1.0.0",
+  "description": "Proof-of-concept react-big-calendar app for Metro Parks Tacoma",
+  "main": "index.js",
+  "author": "Coby Tamayo <ctamayo@sitecrafting.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "parcel src/app.js",
+    "build": "parcel watch src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.9.0",
+    "react-big-calendar": "^0.22.0",
+    "react-dom": "^16.9.0",
+    "tt-react-calendar": "^1.5.9"
+  }
+}
