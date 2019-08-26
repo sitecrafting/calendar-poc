@@ -1,0 +1,65 @@
+main {
+  width: 70em;
+  max-width: 90%;
+  margin: auto;
+}
+
+
+
+
+/*
+ * FullCalendar
+ */
+
+/* hide redundant info & controls */
+.fc-header-toolbar { display: none; }
+.fc-event {
+  background-color: #4A207E;
+  border-color: #4A207E;
+}
+
+
+
+
+
+
+/*
+ * tt-react-calendar
+ */
+
+.mp-week, .mp-calendar-header {
+  display: flex;
+}
+.mp-week > div, .mp-calendar-header > div {
+  flex-basis: 14.2%;
+  flex-grow: 1;
+}
+
+.mp-day {
+  height: 5em;
+  border: 1px solid lightgrey;
+}
+.day-list-label { display: none; }
+
+.tt-cal-inlineMonthHeader { display: none; }
+
+@media screen and (max-width: 740px) {
+  .mp-calendar-header {
+    display: none;
+  }
+  .mp-week {
+    display: block;
+  }
+  .mp-day {
+    display: none;
+    border: none;
+  }
+
+  .day-label { display: none; }
+  .day-list-label { display: block; }
+
+  /* Hide adjacent months on mobile */
+  .filter-month--07 .month--07.has-events { display: block; }
+  .filter-month--08 .month--08.has-events { display: block; }
+  .filter-month--09 .month--09.has-events { display: block; }
+}

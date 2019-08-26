@@ -2,12 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
 
-import TTCalendar from 'tt-react-calendar';
-
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+// FullCalendar styles
+import '@fullcalendar/core/main.css';
+import '@fullcalendar/daygrid/main.css';
 
 import BigCalendar from 'react-big-calendar';
+
+import TTCalendar from 'tt-react-calendar';
+
+// generic app styles
+import './app.less';
 
 
 // This will come from an AJAX call
@@ -58,6 +64,60 @@ const flatEvents = [{
   title: "Event 4",
   start: "2019-08-28",
   date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event5",
+  title: "Event 5",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event6",
+  title: "Event 6",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event7",
+  title: "Event 7",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event8",
+  title: "Event 8",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event9",
+  title: "Event 9",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event10",
+  title: "Event 10",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event11",
+  title: "Event 11",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "456",
+  url: "#event12",
+  title: "Event 12",
+  start: "2019-08-28",
+  date: "2019-08-28",
+}, {
+  id: "567",
+  url: "#event13",
+  title: "Event 13",
+  start: "2019-09-01",
+  date: "2019-09-01",
 }];
 
 
@@ -69,12 +129,28 @@ const flatEvents = [{
  */
 
 function FullCalendarDemo(props) {
+  const views = {
+    dayGrid: {
+      eventLimit: 3,
+    },
+  };
+
+  const onEventLimitClick = (e) => {
+    console.log('here is where we switch to day view', e);
+  };
+
   return (
-    <FullCalendar
-      defaultView="dayGridMonth"
-      plugins={[dayGridPlugin]}
-      events={flatEvents}
-    />
+    <div>
+      <FullCalendar
+        defaultView="dayGridMonth"
+        plugins={[dayGridPlugin]}
+        events={flatEvents}
+        eventLimit={true}
+        views={views}
+        eventLimitText="View all events"
+        eventLimitClick={onEventLimitClick}
+      />
+    </div>
   );
 }
 
