@@ -57,9 +57,14 @@ const flatEvents = [{
 
 /*
  * react-big-calendar
+ *
+ * Couldn't get this one to work :(
+ *
+ * Uncommenting the `const localizer...` line (which is required) causes:
+ * "TypeError: _reactBigCalendar.default is undefined"
  */
 
-const localizer = BigCalendar.momentLocalizer(moment);
+//const localizer = BigCalendar.momentLocalizer(moment);
 function BigCalendarDemo(props) {
   return (
     <div>
@@ -71,7 +76,7 @@ function BigCalendarDemo(props) {
   );
 }
 
-ReactDOM.render(<BigCalendarDemo />, document.getElementById('big-calendar'));
+//ReactDOM.render(<BigCalendarDemo />, document.getElementById('big-calendar'));
 
 
 
