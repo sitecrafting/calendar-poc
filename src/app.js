@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TTCalendar from 'tt-react-calendar';
 import moment from 'moment';
+
+import TTCalendar from 'tt-react-calendar';
+
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 import BigCalendar from 'react-big-calendar';
 
@@ -33,23 +37,48 @@ const flatEvents = [{
   id: "123",
   url: "#event1",
   title: "Event 1",
+  // NOTE: `start` and `date` are the same for reusability
   start: "2019-07-28",
+  date: "2019-07-28",
 }, {
   id: "234",
   url: "#event2",
   title: "Event 2",
   start: "2019-08-02",
+  date: "2019-08-02",
 }, {
   id: "345",
   url: "#event3",
   title: "Event 3",
   start: "2019-08-05",
+  date: "2019-08-05",
 }, {
   id: "456",
   url: "#event4",
   title: "Event 4",
   start: "2019-08-28",
+  date: "2019-08-28",
 }];
+
+
+
+
+
+/*
+ * fullcalendar
+ */
+
+function FullCalendarDemo(props) {
+  return (
+    <FullCalendar
+      defaultView="dayGridMonth"
+      plugins={[dayGridPlugin]}
+      events={flatEvents}
+    />
+  );
+}
+
+ReactDOM.render(<FullCalendarDemo />, document.getElementById('full-calendar'));
 
 
 
