@@ -8,6 +8,7 @@ import listPlugin from '@fullcalendar/list';
 // FullCalendar styles
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
+import '@fullcalendar/list/main.css';
 
 import BigCalendar from 'react-big-calendar';
 
