@@ -58,6 +58,14 @@ const flatEvents = [{
   title: "Event 3",
   start: "2019-08-05",
   date: "2019-08-05",
+  end: "2019-08-08",
+}, {
+  id: "345",
+  url: "#event33",
+  title: "Event 33",
+  start: "2019-08-10",
+  date: "2019-08-10",
+  end: "2019-08-19",
 }, {
   id: "456",
   url: "#event4",
