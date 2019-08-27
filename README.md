@@ -9,14 +9,12 @@ yarn
 yarn run start
 ```
 
-The last command should output a port number. Go to `localhost:<PORT>` in your browser; the window should refresh automatically when the JavaScript changes.
+The last command should output a port number. Go to `localhost:<PORT>` in your browser.
 
-## Edit LESS
-
-To watch the LESS files and compile changes automatically, run this in a separate terminal window:
+Finally, run this in a separate terminal window:
 
 ```
 yarn build
 ```
 
-Changes to the main LESS file, `src/app.less`, will now trigger rebuilds of the CSS.
+*NOTE:* Due to some finicky-ness, you may need to trigger one last recompile by saving `src/app.js` and then reloading your browser window.
