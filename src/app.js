@@ -118,6 +118,18 @@ const flatEvents = [{
   title: "Event 13",
   start: "2019-09-01",
   date: "2019-09-01",
+}, {
+  id: "567",
+  url: "#event14",
+  title: "Event 14",
+  start: "2019-09-03",
+  date: "2019-09-03",
+}, {
+  id: "567",
+  url: "#event15",
+  title: "Event 15",
+  start: "2019-09-04",
+  date: "2019-09-04",
 }];
 
 
@@ -128,30 +140,51 @@ const flatEvents = [{
  * fullcalendar
  */
 
-function FullCalendarDemo(props) {
-  const views = {
-    dayGrid: {
-      eventLimit: 3,
-    },
-  };
+class FullCalendarDemo extends React.Component {
 
-  const onEventLimitClick = (e) => {
-    console.log('here is where we switch to day view', e);
-  };
+  constructor(props) {
+    super(props);
+    this.calendarRef = React.createRef();
+  }
 
-  return (
-    <div>
-      <FullCalendar
-        defaultView="dayGridMonth"
-        plugins={[dayGridPlugin]}
-        events={flatEvents}
-        eventLimit={true}
-        views={views}
-        eventLimitText="View all events"
-        eventLimitClick={onEventLimitClick}
-      />
-    </div>
-  );
+  render() {
+    const views = {
+      dayGrid: {
+        eventLimit: 3,
+      },
+    };
+
+    const onEventLimitClick = (e) => {
+      console.log('here is where we switch to day view', e);
+    };
+
+    const onPrev = () => {
+      this.calendarRef.current.getApi().prev()
+    };
+
+    const onNext = () => {
+      this.calendarRef.current.getApi().next()
+    };
+
+    return (
+      <div>
+        <nav>
+          <a href="#" onClick={onPrev}>Previous</a>
+          <a href="#" onClick={onNext}>Next</a>
+        </nav>
+        <FullCalendar
+          ref={this.calendarRef}
+          defaultView="dayGridMonth"
+          plugins={[dayGridPlugin]}
+          events={flatEvents}
+          eventLimit={true}
+          views={views}
+          eventLimitText="View all events"
+          eventLimitClick={onEventLimitClick}
+        />
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<FullCalendarDemo />, document.getElementById('full-calendar'));
