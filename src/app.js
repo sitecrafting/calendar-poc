@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import listPlugin from '@fullcalendar/list';
 // FullCalendar styles
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
@@ -166,6 +167,14 @@ class FullCalendarDemo extends React.Component {
       console.log('here is where we switch to day view', e);
     };
 
+    const onResize = (view) => {
+      // switch to list view below the arbitrarily selected 600px
+      // we can set this to whatever we want
+      if (view.el.offsetWidth < 600) {
+        this.calendarRef.current.getApi().changeView('listMonth');
+      }
+    };
+
     const onPrev = () => {
       this.calendarRef.current.getApi().prev()
     };
@@ -183,12 +192,13 @@ class FullCalendarDemo extends React.Component {
         <FullCalendar
           ref={this.calendarRef}
           defaultView="dayGridMonth"
-          plugins={[dayGridPlugin]}
+          plugins={[dayGridPlugin, listPlugin]}
           events={flatEvents}
           eventLimit={true}
           views={views}
           eventLimitText="View all events"
           eventLimitClick={onEventLimitClick}
+          windowResize={onResize}
         />
       </div>
     );
